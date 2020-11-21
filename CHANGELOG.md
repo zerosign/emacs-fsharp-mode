@@ -1,3 +1,7 @@
+## 1.11 (2020-11-12)
+Features:
+  - Remove eglot dependencies
+
 ## 1.10 (2019.12-01)
 
 Features:
@@ -93,7 +97,7 @@ Features:
   - #127: Update to FsAutoComplete 0.32.0 (.NET Core project support)
 
 Bugfixes:
-  - #125: Small fixes to try to prevent fsharp-mode to freeze all emacs 
+  - #125: Small fixes to try to prevent fsharp-mode to freeze all emacs
   - #122: Make fsharp-doc-mode hook buffer-local
 
 ## 1.9.5 (2017-01-21)

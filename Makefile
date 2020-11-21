@@ -10,9 +10,6 @@ elpa-$(EMACS):
 	$(CASK) update
 	touch $@
 
-test/eglot-tests.el:
-	curl -o eglot-tests.el https://raw.githubusercontent.com/joaotavora/eglot/master/eglot-tests.el
-
 elpa: elpa-$(EMACS)
 
 build: elpa version
@@ -25,7 +22,7 @@ test/Test1/restored:
 	dotnet restore test/Test1
 	touch test/Test1/restored
 
-test: version build test/eglot-tests.el test/Test1/restored
+test: version build test/Test1/restored
 	$(CASK) exec buttercup -L . -L ./test --traceback full
 
 clean:
@@ -37,4 +34,3 @@ elpaclean: clean
 
 run-$(PKG): elpa
 	cask exec $(EMACS) -Q -L . --eval "(require '$(PKG))"
-
