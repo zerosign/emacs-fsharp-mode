@@ -7,17 +7,11 @@ Provides support for the F# language in Emacs. Includes the following features:
 
 - Syntax highlighting and indentation
 - Support for F# Interactive
-- Via [[https://github.com/joaotavora/eglot/issues][Eglot]] LSP-client integration:
-  - Displays type signatures and tooltips
-  - Flymake
-  - Completion
-  - Jump to definition [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Xref.html][Find Identifier References]] (Xref)
 
 ** LSP mode
 Previous versions of =fsharp-mode= (mis)used a second repository [[https://github.com/rneatherway/emacs-fsharp-mode-bin][emacs-fsharp-mode-bin]] to distribute =fsautocomplete.exe= and =fsharp-mode= together.
 
-The current version of =fsharp-mode= installs =fsautocomplete.exe= automatically via [[https://github.com/joaotavora/eglot][eglot-fsharp]] (part of this repo) or
-[[https://github.com/emacs-lsp/lsp-mode][lsp-mode]] (untested).
+The current version of =fsharp-mode= [[https://github.com/emacs-lsp/lsp-mode][lsp-mode]] (untested).
 
 =fsharp-mode= is tested with Emacs 26.1+ and NET Core 2.1 (LTS)
 
@@ -59,21 +53,6 @@ I recommend to use [[https://cask.github.io/why-cask.html][Cask]]. Add this to y
 #+BEGIN_SRC elisp
 (depends-on "fsharp-mode" :git "https://github.com/fsharp/emacs-fsharp-mode.git")
 #+END_SRC
-
-** Eglot integration
-
-=eglot-fsharp= is part of this package and provides integration to [[https://github.com/joaotavora/eglot][Eglot]] Emacs LSP client:
-
-   - Automatic =fsautocomplete= download
-   - Workaround for non-LSP standard-compliant
-
-Add to your config:
-#+BEGIN_SRC elisp
-(require 'eglot-fsharp)
-#+END_SRC
-
-and execute =M-x eglot=
-
 
 ** Projects
 
@@ -165,16 +144,6 @@ On Arch Linux using [[https://aur.archlinux.org/packages/dotnet-sdk-lts-bin][dot
 #r "/opt/dotnet/sdk/2.1.801/ref/netstandard.dll"
 #+END_SRC
 
-*** Project file issues
-
-If your project file does not seem to be being parsed correctly, so
-that you have missing references or other incorrect intellisense
-results, it is possible to obtain a detailed log of LSP events in this buffers:
-
-
-- =*EGLOT (PROJECT/fsharp-mode) stderr*=
-- =*EGLOT (PROJECT/fsharp-mode) output*=
-- =*EGLOT (PROJECT/fsharp-mode) events*=
 
 ** Contributing
 
@@ -194,7 +163,3 @@ The maintainers of this repository appointed by the F# Core Engineering Group ar
 
 Previous maintainers:
  - [[https://github.com/rneatherway][Robin Neatherway]]
-
-
-
-
